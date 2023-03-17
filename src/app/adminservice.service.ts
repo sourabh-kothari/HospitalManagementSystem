@@ -38,4 +38,8 @@ export class AdminserviceService {
   {
   return this.httpclient.put("/hospital/doctor/",doctor);
   }
+  public logout()
+{
+  return  this.adminLoggedin = false;
+}
 }

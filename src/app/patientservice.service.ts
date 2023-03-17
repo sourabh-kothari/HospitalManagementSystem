@@ -26,4 +26,8 @@ export class PatientserviceService {
   {
    return this.httpclient.post("/hospital/user",user);
   }
+  public logout()
+{
+  return  this.patientLoggedin = false;
+}
 }

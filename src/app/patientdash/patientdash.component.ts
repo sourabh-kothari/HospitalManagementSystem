@@ -10,15 +10,20 @@ import { PatientserviceService } from '../patientservice.service';
 })
 export class PatientdashComponent implements OnInit{
   doctor:any;
-  isLoggedin = false;
   constructor(private proser:PatientserviceService,private router:Router){}
 
   ngOnInit(): void {
     this.getAllDoctors();
+    
   }
   onLogout() {
-    this.isLoggedin = false;
-    this.router.navigateByUrl("");
+    localStorage.clear();
+    
+    
+    this.proser.logout();
+
+   
+   this.router.navigateByUrl("");
   }
   getAllDoctors() {
     return this.proser.getAllDoctors().subscribe((d:any)=>
