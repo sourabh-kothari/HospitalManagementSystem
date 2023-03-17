@@ -10,6 +10,6 @@ export class PatientserviceService {
 
   addPatient(user:any)
   {
-   return  this.httpclient.post("/hospital/user",user);
+   return this.httpclient.post("/hospital/user",user);
   }
 }

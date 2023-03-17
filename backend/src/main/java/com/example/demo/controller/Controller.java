@@ -50,4 +50,8 @@ public class Controller {
 	public void insertUser(@RequestBody User user) {
 		serimp.InsertUser(user);
 	}
+	@GetMapping("/doctor/search/{dfield}")
+	public List<Doctor> getDoctorByField(@PathVariable String dfield) {
+		return serimp.searchDoctorByField(dfield);
+	}
 }

@@ -62,10 +62,15 @@ public class ServiceImplementations implements ServiceDeclarations {
 		
 	}
 	@Override
+	@Transactional
 	public List<User> getPatientListOfDoctor(String name, Doctor doctor) {
 		return doctor.getUsers();
 	}
-
+	@Override
+	@Transactional
+	public List<Doctor> searchDoctorByField(String name) {
+		return drepo.findByName(name);
+	}
 	
 
 }
