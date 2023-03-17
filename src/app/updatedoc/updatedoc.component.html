@@ -1,0 +1,31 @@
+<form #updateForm="ngForm"  novalidate>
+    Doctor Id:<input type="number" name="did" #did="ngModel" ngModel required minlength="3" 
+    maxlength="10"pattern="[a-zA-Z ]*">
+    <div *ngIf="!dname.value" style="color:red;">Your field is empty</div>
+    <br>
+    Doctor name:<input type="text" name="dname" #dname="ngModel" ngModel required minlength="3" 
+    maxlength="10"pattern="[a-zA-Z ]*">
+    <div *ngIf="!dname.value" style="color:red;">Your field is empty</div>
+    <br>
+    Enter field:<input type="text" name="dfield" #dfield="ngModel" ngModel required>
+    <div *ngIf="!dfield.value" style="color:red;">Your field is empty</div>
+    <br>
+    Enter age:<input type="text" name="dage" #dage="ngModel" ngModel 
+    required maxlength="10">
+    <div *ngIf="!dage.value" style="color:red;">Your field is empty</div>
+    
+    <br>
+    <br>
+    Enter gender:<input type="text" name="dgender" #dgender="ngModel" ngModel required>
+    <div *ngIf="!dgender.value" style="color:red;">Your field is empty</div>
+    <br>
+    Enter patientcount:<input type="number" name="dpatientcount" #dpatientcount="ngModel" ngModel required>
+    <div *ngIf="!dpatientcount.value" style="color:red;">Your field is empty</div>
+    <br>
+    Enter fees:<input type="text" name="dfees" #dfees="ngModel" ngModel required>
+    <div *ngIf="!dfees.value" style="color:red;">Your field is empty</div>
+    <br>
+    Enter List of Treatments:<input type="text" name="dlistoftreatments" #dlistoftreatments="ngModel" ngModel required>
+    <div *ngIf="!dlistoftreatments.value" style="color:red;">Your field is empty</div>
+    <br>
+    <button [disabled]="!updateForm.value" (click)="update(updateForm.value)">Update</button>

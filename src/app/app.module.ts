@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,10 @@ import { LogincomponentComponent } from './logincomponent/logincomponent.compone
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { AdmindashComponent } from './admindash/admindash.component';
+import { ShowdocComponent } from './showdoc/showdoc.component';
+import { RegisterComponent } from './register/register.component';
+import { UpdatedocComponent } from './updatedoc/updatedoc.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +25,19 @@ import { ContactusComponent } from './contactus/contactus.component';
     LogincomponentComponent,
     AdminloginComponent,
     PatientloginComponent,
-    ContactusComponent
+    ContactusComponent,
+    AdmindashComponent,
+    ShowdocComponent,
+    RegisterComponent,
+    UpdatedocComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,77 @@
+<div class="container">
+<table class="table table-bordered border-dark table-hover">
+    <thead>
+      <tr>
+        <th> DocId </th>
+        <th> DocName</th>
+        <th> Docfield</th>
+        <th> Docage</th>
+        <th> Docgender</th>
+        <th > Docpatientcount</th>
+        <th > Docfees</th>
+        <th > Doctreatments</th>
+        <th > Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of doctor">
+        <td >{{ d.did }}</td>
+        <td>{{ d.dname}}</td>
+        <td>{{ d.dfield }}</td>
+        <td>{{ d.dage }}</td>
+        <td>{{ d.dgender }}</td>
+        <td>{{ d.dpatientcount }}</td>
+        <td>{{ d.dfees }}</td>
+        <td >{{ d.dlistoftreatments }}</td>
+        <td ><button class="btn btn-danger btn-sm" style="margin-right: 10px;" (click)="deleteDoc(d.did)">Delete</button>
+          <button class="btn btn-success btn-sm" (click)="updateDoc(d.did,d)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>  
+    <button type="button" class="btn btn-primary" (click)="showAdd = !showAdd"> Add Doctor </button>  
+    <div *ngIf="showAdd" class="row">
+        <div class="col-lg-8">
+          <div class="card">
+        <form (ngSubmit)="onAdd(doctorForm.value)" #doctorForm="ngForm" class="mx-auto w-50">
+          <h3>Enter Details of New Doctor</h3>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="dname"   id="dname"   #dname="ngModel"     ngModel>
+              </div>
+            <div class="form-group">
+              <label for="age">Age:</label>
+              <input type="text" class="form-control"  name="dage"   id="dage"   #dage="ngModel"     ngModel>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select class="form-select" name="dgender"   id="dgender"   #dage="ngModel"     ngModel>
+                <option value="">Select a gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="field">Field:</label>
+              <input type="text" class="form-control"  name="dfield"   id="dfield"   #dfield="ngModel"     ngModel>
+            </div>
+            <div class="form-group">
+              <label for="listoftreatments">List of treatments:</label>
+              <textarea name="dlistoftreatments" class="form-control"  id="dlistoftreatments"   #dlistoftreatments="ngModel"     ngModel></textarea>
+            </div>
+            <div class="form-group">
+              <label for="patientcount">Patient count:</label>
+              <input type="number" class="form-control"  name="dpatientcount"   id="dpatientcount"   #dpatientcount="ngModel"     ngModel>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="patientcount">Fees:</label>
+                <input type="number" class="form-control"  name="dfees"   id="dfees"   #dfees="ngModel"     ngModel>
+              </div>
+              <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+    </div>
+</div>
+</div>

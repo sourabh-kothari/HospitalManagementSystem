@@ -1,0 +1,38 @@
+<section class="h-100 h-custom" style="background-color: #5280b0;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">New Patient Registration</h3>
+  
+              <form (ngSubmit)="register(registerForm.value)" #registerForm="ngForm" class="px-md-2">
+  
+                <div class="form-outline mb-4">
+                    <div *ngIf="uname.errors?.['required'] && uname.touched" class="text-danger">*Name Reqiured</div>
+                    <label class="form-label" for="form3Example1q">Name</label>
+                    <input type="text" id="uname" name="uname" #uname="ngModel" ngModel required class="form-control"/>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <div *ngIf="uemail.errors?.['required'] && uemail.touched" class="text-danger">*Email Reqiured</div>
+                    <label class="form-label" for="form3Example1q">Email</label>
+                    <input type="email" id="uemail" name="uemail" #uemail="ngModel" ngModel required class="form-control" />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <div *ngIf="upassword.errors?.['required'] && upassword.touched" class="text-danger">*Enter a strong password</div>
+                    <label class="form-label" for="form3Example1q">Password</label>
+                    <input type="password" id="upassword" name="upassword" #upassword="ngModel" ngModel required class="form-control" />
+                  </div>
+  
+                <button type="submit" class="btn btn-success btn-lg mb-1">Register</button>
+  
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

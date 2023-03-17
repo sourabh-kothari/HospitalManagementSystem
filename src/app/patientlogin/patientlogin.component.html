@@ -1,1 +1,44 @@
-<p>patientlogin works!</p>
+<section class="vh-100" style="background-color: #5280b0;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="assets\images\10.jpg" alt="login form" class="img-fluid"
+                                style="border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form #loginForm="ngForm" (ngSubmit)="patientLogin(loginForm.value)" novalidate>
+
+                                    <h3 class="fw-normal mb-3 pb-3 text-success" style="letter-spacing: 1px;"><b>Welcome to Patient LogIn Page</b></h3>
+
+                                    <div class="form-outline mb-4">
+                                        <div *ngIf="loginId.errors?.['required'] && loginId.touched" class="text-danger">Please enter UserId</div>
+                                        <div *ngIf="loginId.errors?.['minlength'] && loginId.touched" class="text-danger">Please enter atleast 5 character in loginId</div>
+                                        <label class="form-label">User Id</label>
+                                        <input class="form-control" name="loginId" #loginId="ngModel" ngModel required minlength="4" maxlength="6"/>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <div *ngIf="password.errors?.['required'] && password.touched" class="text-danger">Enter password to login</div>
+                                        <div *ngIf="password.errors?.['minlength'] && password.touched" class="text-danger">Password must be of 5 character</div>
+                                        <label class="form-label">Password</label>
+                                        <input class="form-control" type="password" name="password" #password="ngModel" ngModel required minlength="4" maxlength="6"/>
+                                    </div>
+
+                                    <div class="pt-1 mb-4">
+                                        <button class="btn btn-primary btn-lg" routerLink="/admindash" [disabled]="!loginForm.value">Login</button>
+                                    </div>
+                                </form>
+                                <p>Are you a new patient? <a routerLink="/register">click here</a> to register yourshelf</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
