@@ -5,8 +5,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PatientserviceService {
+  getAllDoctors() {
+    return this.httpclient.get("/hospital/doctor");
+  }
+  patientLoggedin:boolean;
 
-  constructor(private httpclient:HttpClient) { }
+  constructor(private httpclient:HttpClient) {
+    this.patientLoggedin=false;
+   }
+
+   setPatientLoggedin(){
+    this.patientLoggedin=true;
+   }
+   getPatientLoggedin():boolean{
+    return this.patientLoggedin;
+
+   }
 
   addPatient(user:any)
   {
