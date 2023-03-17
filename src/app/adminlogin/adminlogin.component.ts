@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminlogin',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminloginComponent implements OnInit {
 
-  constructor() {
+  constructor(private route:Router) {
 
   }
   ngOnInit(): void {
@@ -16,7 +17,7 @@ export class AdminloginComponent implements OnInit {
 
   adminLogin(loginform: any) {
     if (loginform.loginId === 'ADMIN' && loginform.password === 'ADMIN') {
-      alert("Welcome to ADMIN Home Page!!")
+      this.route.navigateByUrl("admindash")
     }
     else{
       alert("Wrong ADMIN credentials!!")

@@ -1,0 +1,30 @@
+<div class="container">
+    <table class="table table-bordered border-dark table-hover">
+        <thead>
+          <tr>
+            <th> DocId </th>
+            <th> DocName</th>
+            <th> Docfield</th>
+            <th> Docage</th>
+            <th> Docgender</th>
+            <th > Docpatientcount</th>
+            <th > Docfees</th>
+            <th > Doctreatments</th>
+            <th > Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of doctor">
+            <td >{{ d.did }}</td>
+            <td>{{ d.dname}}</td>
+            <td>{{ d.dfield }}</td>
+            <td>{{ d.dage }}</td>
+            <td>{{ d.dgender }}</td>
+            <td>{{ d.dpatientcount }}</td>
+            <td>{{ d.dfees }}</td>
+            <td >{{ d.dlistoftreatments }}</td>
+            <td ><button class="btn btn-success btn-sm" style="margin-right: 10px;">Book Appoinment</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

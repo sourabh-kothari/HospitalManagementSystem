@@ -16,6 +16,7 @@ import { AdmindashComponent } from './admindash/admindash.component';
 import { ShowdocComponent } from './showdoc/showdoc.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdatedocComponent } from './updatedoc/updatedoc.component';
+import { PatientdashComponent } from './patientdash/patientdash.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UpdatedocComponent } from './updatedoc/updatedoc.component';
     AdmindashComponent,
     ShowdocComponent,
     RegisterComponent,
-    UpdatedocComponent
+    UpdatedocComponent,
+    PatientdashComponent
   ],
   imports: [
     BrowserModule,

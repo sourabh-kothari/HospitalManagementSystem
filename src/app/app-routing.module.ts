@@ -5,6 +5,7 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
+import { PatientdashComponent } from './patientdash/patientdash.component';
 import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { RegisterComponent } from './register/register.component';
 import { ShowdocComponent } from './showdoc/showdoc.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'admindash',component:AdmindashComponent},
   {path:'showdoc',component:ShowdocComponent},
   {path:'register',component:RegisterComponent},
-  {path:'updatedoc',component:UpdatedocComponent}
+  {path:'updatedoc',component:UpdatedocComponent},
+  {path:'patientdash',component:PatientdashComponent},
 ];
 
 @NgModule({
