@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PatientserviceService } from '../patientservice.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,16 +9,18 @@ import { PatientserviceService } from '../patientservice.service';
 })
 export class RegisterComponent implements OnInit{
 
-  constructor(private pser:PatientserviceService,private router:Router) {}
+  constructor(private user:UserService,private router:Router) {}
 
   ngOnInit(): void {
   }
 
   register(registerForm:any) {
     console.log(registerForm);
-    this.pser.addPatient(registerForm).subscribe((data: any) => {
+    this.user.addUser(registerForm).subscribe((data: any) => {
       console.log(data);
       this.ngOnInit();
+      this.router.navigateByUrl("patientlogin");
+      alert("Registration Successfull..!!");
     });
   }
 

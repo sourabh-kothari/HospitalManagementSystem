@@ -9,17 +9,30 @@ import { AdminserviceService } from '../adminservice.service';
 })
 export class UpdatedocComponent implements OnInit{
 
-  ngOnInit(): void {
-  
-  }
- constructor(private router:Router,private prodser:AdminserviceService)
+  doctor:any;
+
+  constructor(private router:Router,private adser:AdminserviceService)
  {
    
  }
+
+  ngOnInit(): void {
+  }
+  
+
+  getAllDoctors()
+  {
+  return this.adser.getAllDoctors().subscribe((d:any)=>
+  {
+    console.log(d);
+    this.doctor=d;
+  }
+  )};
+
  update(data:any)
  {
   data.id=localStorage.getItem("id");
-  return this.prodser.updateDoctor(data.id,data).subscribe((c:any)=>
+  return this.adser.updateDoctor(data.id,data).subscribe((c:any)=>
       {
         this.gotolist();
       })

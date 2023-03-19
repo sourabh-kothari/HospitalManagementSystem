@@ -22,10 +22,15 @@ export class PatientserviceService {
 
    }
 
-  addPatient(user:any)
-  {
-   return this.httpclient.post("/hospital/user",user);
-  }
+   getAllPatient(){
+    return this.httpclient.get("/hospital/patient");
+   }
+
+
+   getPatientByDid(id:any){
+    return this.httpclient.get("/hospital/patient/"+id)
+   }
+
   public logout()
 {
   return  this.patientLoggedin = false;

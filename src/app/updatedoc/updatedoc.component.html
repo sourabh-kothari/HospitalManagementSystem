@@ -1,31 +1,48 @@
-<form #updateForm="ngForm"  novalidate>
-    Doctor Id:<input type="number" name="did" #did="ngModel" ngModel required minlength="3" 
-    maxlength="10"pattern="[a-zA-Z ]*">
-    <div *ngIf="!dname.value" style="color:red;">Your field is empty</div>
-    <br>
-    Doctor name:<input type="text" name="dname" #dname="ngModel" ngModel required minlength="3" 
-    maxlength="10"pattern="[a-zA-Z ]*">
-    <div *ngIf="!dname.value" style="color:red;">Your field is empty</div>
-    <br>
-    Enter field:<input type="text" name="dfield" #dfield="ngModel" ngModel required>
-    <div *ngIf="!dfield.value" style="color:red;">Your field is empty</div>
-    <br>
-    Enter age:<input type="text" name="dage" #dage="ngModel" ngModel 
-    required maxlength="10">
-    <div *ngIf="!dage.value" style="color:red;">Your field is empty</div>
+<div class="container">
+    <div class="col-lg-8">
+        <div class="card">
+            <h3>Update Doctor Details</h3>
+            <form #updateForm="ngForm"  novalidate>
+                <div class="form-group">
+                    <div *ngIf="did.errors?.['required'] && did.touched" class="text-danger" style="color: red;">Please enter Doctor Id</div>
+                    Doctor Id:<input class="form-control" placeholder="" type="number" name="did" #did="ngModel" ngModel required minlength="3" 
+                    maxlength="10"pattern="[a-zA-Z ]*">
+                </div>
+                <br>
+                <div *ngIf="dname.errors?.['required'] && dname.touched" class="text-danger" style="color: red;">Please enter Doctor Name</div>
+                Doctor name:<input class="form-control" type="text" name="dname" #dname="ngModel" ngModel required minlength="3" 
+                maxlength="40"pattern="[a-zA-Z ]*">
+                <br>
+                <div *ngIf="dfield.errors?.['required'] && dfield.touched" class="text-danger" style="color: red;">Please enter Field</div>
+                Enter field:<input class="form-control" type="text" name="dfield" #dfield="ngModel" ngModel required>
+                <br>
+                <div *ngIf="dage.errors?.['required'] && dage.touched" class="text-danger" style="color: red;">Please enter Doctor's age</div>
+                Enter age:<input class="form-control" type="text" name="dage" #dage="ngModel" ngModel 
+                required maxlength="10">
+                <br>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="form-select" name="dgender" id="dgender" #dage="ngModel" required ngModel>
+                      <option value="">Select a gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                <br>
+                <div *ngIf="dpatientcount.errors?.['required'] && dpatientcount.touched" class="text-danger" style="color: red;">enter patient count</div>
+                Enter patientcount:<input class="form-control" type="number" name="dpatientcount" #dpatientcount="ngModel" ngModel required>
+                <br>
+                <div *ngIf="dfees.errors?.['required'] && dfees.touched" class="text-danger" style="color: red;">Enter Doctor's Fees</div>
+                Enter fees:<input class="form-control" type="text" name="dfees" #dfees="ngModel" ngModel required>
+                <br>
+                <div *ngIf="dlistoftreatments.errors?.['required'] && dlistoftreatments.touched" class="text-danger" style="color: red;">Enter List of Treatments</div>
+                Enter List of Treatments:
+                <textarea class="form-control" type="text" name="dlistoftreatments" #dlistoftreatments="ngModel" ngModel required></textarea>
+                <br>
+                <button class="btn btn-success btn-md" [disabled]="!updateForm.value" (click)="update(updateForm.value)">Update</button>
+            </form>
+        </div>
+        </div>
+    </div>
     
-    <br>
-    <br>
-    Enter gender:<input type="text" name="dgender" #dgender="ngModel" ngModel required>
-    <div *ngIf="!dgender.value" style="color:red;">Your field is empty</div>
-    <br>
-    Enter patientcount:<input type="number" name="dpatientcount" #dpatientcount="ngModel" ngModel required>
-    <div *ngIf="!dpatientcount.value" style="color:red;">Your field is empty</div>
-    <br>
-    Enter fees:<input type="text" name="dfees" #dfees="ngModel" ngModel required>
-    <div *ngIf="!dfees.value" style="color:red;">Your field is empty</div>
-    <br>
-    Enter List of Treatments:<input type="text" name="dlistoftreatments" #dlistoftreatments="ngModel" ngModel required>
-    <div *ngIf="!dlistoftreatments.value" style="color:red;">Your field is empty</div>
-    <br>
-    <button [disabled]="!updateForm.value" (click)="update(updateForm.value)">Update</button>

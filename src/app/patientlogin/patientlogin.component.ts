@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-patientlogin',
@@ -7,12 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./patientlogin.component.css']
 })
 export class PatientloginComponent implements OnInit{
-  constructor(private route:Router){}
+  user:any;
+  uemail:any;
+  upassword:any;
+  constructor(private route:Router, private userservice:UserService){}
   ngOnInit(): void {
   }
 
-  patientLogin(loginform: any) {
-    if (loginform.loginId === 'abc123' && loginform.password === 'abc123') {
+  getAllUser()
+  {
+  return this.userservice.getAllUser().subscribe((u:any)=>
+  {
+    console.log(u);
+    this.user=u;
+  }
+  )};
+
+  userLogin(loginform: any) {
+    if (loginform.uemail === 'abc@123' && loginform.upassword === 'abc123') {
       this.route.navigateByUrl("patientdash")
     }
     else{

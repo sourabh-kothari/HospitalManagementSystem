@@ -1,0 +1,70 @@
+<nav class="navbar navbar-light bg-light">
+  <div id="search">
+    <input
+      type="text"
+      placeholder="Enter Doctor Id"
+      [(ngModel)]="searchedKeyword"
+      class="form-control"
+      id="input"
+    />
+  </div>
+  </nav>
+<!--
+  <div *ngIf="showTable">
+    <table class="table table-bordered border-dark table-hover">
+        <thead>
+          <tr>
+            <th> PatientId </th>
+            <th> PatientName</th>
+            <th> Patient Gender</th>
+            <th> Patient Age</th>
+            <th> PatientAdhaar</th>
+            <th> Patient Diesese</th>
+            <th> Date Of Visit</th>
+            <th> Time Slot</th>
+            <th> Doctor Id</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of patient">
+            <td >{{ p.pid }}</td>
+            <td>{{ p.pname}}</td>
+            <td>{{ p.pgender }}</td>
+            <td>{{ p.page }}</td>
+            <td>{{ p.padhaar }}</td>
+            <td>{{ p.pdisease }}</td>
+            <td>{{ p.pdate }}</td>
+            <td >{{ p.ptimeslot }}</td>
+            <td >{{ p.did }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+-->
+
+  <table class="table table-bordered border-dark table-hover">
+    <thead>
+      <tr>
+        <th> PatientId </th>
+        <th> PatientName</th>
+        <th> Patient Gender</th>
+        <th> Patient Age</th>
+        <th> PatientAdhaar</th>
+        <th> Patient Diesese</th>
+        <th> Date Of Visit</th>
+        <th> Time Slot</th>
+        <th> Doctor Id</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of patient">
+        <td >{{ p.pid }}</td>
+        <td>{{ p.pname}}</td>
+        <td>{{ p.pgender }}</td>
+        <td>{{ p.page }}</td>
+        <td>{{ p.padhaar }}</td>
+        <td>{{ p.pdisease }}</td>
+        <td>{{ p.pdate }}</td>
+        <td >{{ p.ptimeslot }}</td>
+        <td >{{ p.did }}</td>
+      </tr>
+    </tbody>
+  </table>
