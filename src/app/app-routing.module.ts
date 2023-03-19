@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'updatedoc',component:UpdatedocComponent},
   {path:'patientdash',component:PatientdashComponent},
+  {path:'bookappointment',component: BookappointmentComponent}
 ];
 
 @NgModule({

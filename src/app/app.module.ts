@@ -17,6 +17,7 @@ import { ShowdocComponent } from './showdoc/showdoc.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdatedocComponent } from './updatedoc/updatedoc.component';
 import { PatientdashComponent } from './patientdash/patientdash.component';
+import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PatientdashComponent } from './patientdash/patientdash.component';
     ShowdocComponent,
     RegisterComponent,
     UpdatedocComponent,
-    PatientdashComponent
+    PatientdashComponent,
+    BookappointmentComponent
   ],
   imports: [
     BrowserModule,
