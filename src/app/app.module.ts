@@ -18,7 +18,9 @@ import { RegisterComponent } from './register/register.component';
 import { UpdatedocComponent } from './updatedoc/updatedoc.component';
 import { PatientdashComponent } from './patientdash/patientdash.component';
 import { ViewappoinmentsComponent } from './viewappoinments/viewappoinments.component';
-import { BookappoinmetComponent } from './bookappoinmet/bookappoinmet.component';
+import { BookappointmentComponent } from './bookappointment/bookappointment.component';
+import { ShowuserComponent } from './showuser/showuser.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { BookappoinmetComponent } from './bookappoinmet/bookappoinmet.component'
     UpdatedocComponent,
     PatientdashComponent,
     ViewappoinmentsComponent,
-    BookappoinmetComponent
+    BookappointmentComponent,
+    ShowuserComponent
   ],
   imports: [
     BrowserModule,

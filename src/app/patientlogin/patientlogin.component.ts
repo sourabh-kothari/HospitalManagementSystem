@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./patientlogin.component.css']
 })
 export class PatientloginComponent implements OnInit{
-  user:any;
+  user:User=new User();
   uemail:any;
   upassword:any;
   uname:any
