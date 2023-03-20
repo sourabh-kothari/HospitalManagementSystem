@@ -30,8 +30,9 @@ export class UserService {
   {
     return this.httpclient.get("/hospital/user");
   }
-  loginUser(user:User):Observable<object>{
-    console.log(user);
-    return this.httpclient.post("\login",user);
+  loginUser(uemail:any, upassword: any)
+  {
+    console.log(uemail,upassword);
+      return this.httpclient.get('/hospital/user/login/'+uemail+'/'+upassword);
   }
 }
