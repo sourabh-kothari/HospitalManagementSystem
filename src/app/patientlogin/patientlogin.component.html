@@ -11,22 +11,22 @@
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
 
-                                <form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm.value)" novalidate>
+                                <form #loginForm="ngForm" (ngSubmit)="userLogin()" novalidate>
 
                                     <h3 class="fw-normal mb-3 pb-3 text-success" style="letter-spacing: 1px;"><b>Welcome to Patient LogIn Page</b></h3>
 
                                     <div class="form-outline mb-4">
                                         <div *ngIf="uemail.errors?.['required'] && uemail.touched" class="text-danger">Please enter Email uId</div>
                                         <div *ngIf="uemail.errors?.['minlength'] && uemail.touched" class="text-danger">Please enter atleast 5 character in loginId</div>
-                                        <label class="form-label">Email Id</label>
-                                        <input class="form-control" name="uemail" #uemail="ngModel" ngModel required minlength="4" maxlength="20"/>
+                                        <label class="form-label">Username</label>
+                                        <input class="form-control" name="uname" #uname="ngModel" [(ngModel)]="user.uname" ngModel required minlength="4" maxlength="20"/>
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <div *ngIf="upassword.errors?.['required'] && upassword.touched" class="text-danger">Enter password to login</div>
                                         <div *ngIf="upassword.errors?.['minlength'] && upassword.touched" class="text-danger">Password must be of 5 character</div>
                                         <label class="form-label">Password</label>
-                                        <input class="form-control" type="password" name="upassword" #upassword="ngModel" ngModel required minlength="4" maxlength="20"/>
+                                        <input class="form-control" type="password" name="upassword" #upassword="ngModel" [(ngModel)]="user.upassword" ngModel required minlength="4" maxlength="20"/>
                                     </div>
 
                                     <div class="pt-1 mb-4">

@@ -1,0 +1,17 @@
+<table class="table table-bordered border-dark table-hover">
+    <thead>
+      <tr>
+        <th> User Id </th>
+        <th> UserName</th>
+        <th> User Email</th>
+        <th> User Password</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of user">
+        <td >{{ u.uid }}</td>
+        <td>{{ u.uname}}</td>
+        <td>{{ u.uemail }}</td>
+        <td>{{ u.upassword }}</td>
+      </tr>
+    </tbody>
+  </table>
