@@ -1,0 +1,50 @@
+<div class="col-lg-8">
+    <div class="card">
+  <form (ngSubmit)="onAdd(doctorForm.value)" #doctorForm="ngForm" class="mx-auto w-50">
+    <h3>Enter Details of New Doctor</h3>
+      <div class="form-group">
+        <div *ngIf="dname.errors?.['required'] && dname.touched" class="text-danger" style="color: red;">Please enter Doctor Name</div>
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" name="dname" id="dname" #dname="ngModel" required ngModel>
+        </div>
+      <div class="form-group">
+        <div *ngIf="dage.errors?.['required'] && dage.touched" class="text-danger" style="color: red;">Please enter doctor age</div>
+        <label for="age">Age:</label>
+        <input type="text" class="form-control" name="dage" id="dage" #dage="ngModel" required ngModel>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select class="form-select" name="dgender" id="dgender" #dage="ngModel" required ngModel>
+          <option value="">Select a gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="dfield.errors?.['required'] && dfield.touched" class="text-danger" style="color: red;">Please enter Field</div>
+        <label for="field">Field:</label>
+        <input type="text" class="form-control"  name="dfield"   id="dfield"   #dfield="ngModel"     ngModel>
+      </div>
+      <div class="form-group">
+        <div *ngIf="dlistoftreatments.errors?.['required'] && dlistoftreatments.touched" class="text-danger" style="color: red;">Please enter List of Treatments</div>
+        <label for="listoftreatments">List of treatments:</label>
+        <textarea name="dlistoftreatments" class="form-control"  id="dlistoftreatments"   #dlistoftreatments="ngModel"     ngModel></textarea>
+      </div>
+      <div class="form-group">
+        <div *ngIf="dpatientcount.errors?.['required'] && dpatientcount.touched" class="text-danger" style="color: red;">Please enter patient count</div>
+        <label for="patientcount">Patient count:</label>
+        <input type="number" class="form-control"  name="dpatientcount"   id="dpatientcount"   #dpatientcount="ngModel"     ngModel>
+      </div>
+      <br>
+      <div class="form-group">
+        <div *ngIf="dfees.errors?.['required'] && dfees.touched" class="text-danger" style="color: red;">Please enter doctor's fees</div>
+          <label for="patientcount">Fees:</label>
+          <input type="number" class="form-control"  name="dfees"   id="dfees"   #dfees="ngModel"     ngModel>
+        </div>
+        <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

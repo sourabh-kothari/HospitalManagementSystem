@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdddoctorComponent } from './adddoctor/adddoctor.component';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { BookappointmentComponent } from './bookappointment/bookappointment.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'patientdash',component:PatientdashComponent},
   {path:'viewappoinments',component:ViewappoinmentsComponent},
   {path:'bookappoinment',component:BookappointmentComponent},
-  {path:'showuser',component:ShowuserComponent}
+  {path:'showuser',component:ShowuserComponent},
+  {path:'adddoctor',component:AdddoctorComponent}
 ];
 
 @NgModule({

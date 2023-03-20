@@ -20,6 +20,7 @@ import { PatientdashComponent } from './patientdash/patientdash.component';
 import { ViewappoinmentsComponent } from './viewappoinments/viewappoinments.component';
 import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 import { ShowuserComponent } from './showuser/showuser.component';
+import { AdddoctorComponent } from './adddoctor/adddoctor.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ShowuserComponent } from './showuser/showuser.component';
     PatientdashComponent,
     ViewappoinmentsComponent,
     BookappointmentComponent,
-    ShowuserComponent
+    ShowuserComponent,
+    AdddoctorComponent
   ],
   imports: [
     BrowserModule,
