@@ -10,11 +10,18 @@ import { UserService } from '../user.service';
   styleUrls: ['./patientlogin.component.css']
 })
 export class PatientloginComponent implements OnInit{
-  user:User=new User();
-  uemail:any;
-  upassword:any;
-  uname:any
-  constructor(private route:Router, private userservice:UserService){}
+
+
+  userlogin:any;
+  userDetails:any;
+  user:any;
+  loggedIn:any=false;
+
+  constructor(private route:Router, private userservice:UserService){
+    this.userlogin=[];
+    this.userDetails=[];
+    localStorage.clear();
+  }
   ngOnInit(): void {
   }
 
@@ -27,14 +34,26 @@ export class PatientloginComponent implements OnInit{
   }
   )};
 
-  userLogin(loginform: any) {
+  userLogin()
+  {
     
-    if (loginform.uemail === 'abc123' && loginform.upassword === 'abc123') {
-      this.route.navigateByUrl("patientdash")
+      console.log(this.userlogin);
+      return this.userservice.loginUser(this.userlogin.uemail,this.userlogin.upassword).subscribe((data:any)=>{
+      this.userDetails=data;
+      if(this.userDetails==null)
+      {
+        alert("you have entered wrong credentials");
+        this.loggedIn=false;
+      }
+      else{
+        this.loggedIn=true;
+        localStorage.setItem("loggedIn",JSON.stringify(this.loggedIn));
+        localStorage.setItem("userdetails",JSON.stringify(this.userDetails));
+        alert('login successfull!!');
+        this.route.navigateByUrl("patientdash");
+      }
+      console.log(this.loggedIn);
+      })
     }
-    else{
-      alert("Wrong Patient credentials!!")
-    }
-  }
 
 }
