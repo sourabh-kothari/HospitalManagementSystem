@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user';
@@ -12,6 +13,7 @@ export class PatientloginComponent implements OnInit{
   user:User=new User();
   uemail:any;
   upassword:any;
+  uname:any
   constructor(private route:Router, private userservice:UserService){}
   ngOnInit(): void {
   }
@@ -25,22 +27,14 @@ export class PatientloginComponent implements OnInit{
   }
   )};
 
-
-  userLogin(){
-    console.log(this.user);
-    this.userservice.loginUser(this.user).subscribe(data=>{
-      if(data==null){
-        console.log("not present");
-        alert("login failed")
-      }else{
-        console.log("you have got");
-        alert(" login successful");
-      }
-     
-     
-
-    });
-   // error=>alert("sorry please correct crediential"));
+  userLogin(loginform: any) {
+    
+    if (loginform.uemail === 'abc123' && loginform.upassword === 'abc123') {
+      this.route.navigateByUrl("patientdash")
+    }
+    else{
+      alert("Wrong Patient credentials!!")
+    }
   }
 
 }

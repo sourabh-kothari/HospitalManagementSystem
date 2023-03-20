@@ -33,4 +33,9 @@ export class PatientdashComponent implements OnInit{
   })
 }
 
+bookappoinment(did:any){
+  localStorage.setItem("did",did.toString());
+  this.router.navigateByUrl("bookappoinment");
+}
+
 }

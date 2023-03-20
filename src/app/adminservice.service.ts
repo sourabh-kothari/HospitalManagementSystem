@@ -34,9 +34,9 @@ export class AdminserviceService {
   {
     return  this.httpclient.delete("/hospital/doctor/"+id);
   }
-  updateDoctor(id:any,doctor:any)
+  updateDoctor(doctor:any)
   {
-  return this.httpclient.put("/hospital/doctor/",doctor);
+  return this.httpclient.put("/hospital/doctor",doctor);
   }
   public logout()
 {
