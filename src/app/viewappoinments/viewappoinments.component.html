@@ -1,12 +1,10 @@
 <div class="container">
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <form class="d-flex" (ngSubmit)="onSearch(searchForm.value)" #searchForm="ngForm">
-    <input type="text" placeholder="Enter Doctor Id" name="did" id="did" #did="ngModel" ngModel
-    class="form-control"/>
-    <button class="btn btn-outline-success" type="submit" (click)="showTable = !showTable" style="margin-left: 10px;">Search</button>
-  </form>
-  </div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/admindash">
+        <img src="assets\images\back.png" alt="" width="30" height="30">
+      </a>
+    </div>
   </nav>
 
   <div *ngIf="showTable">

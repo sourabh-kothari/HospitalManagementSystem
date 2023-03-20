@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -49,11 +50,14 @@ export class PatientloginComponent implements OnInit{
         this.loggedIn=true;
         localStorage.setItem("loggedIn",JSON.stringify(this.loggedIn));
         localStorage.setItem("userdetails",JSON.stringify(this.userDetails));
-        alert('login successfull!!');
         this.route.navigateByUrl("patientdash");
       }
       console.log(this.loggedIn);
       })
+    }
+
+    registerSuccess() {
+      Swal.fire('Welcome', 'Logged In Successfully!', 'success');
     }
 
 }

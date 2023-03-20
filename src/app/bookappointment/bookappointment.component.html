@@ -1,66 +1,66 @@
-<div class="card" >
-  <div class="card-body">
-<form (ngSubmit)="bookAppointment(bookAppointmentForm.value)" bookAppointmentForm="ngForm" class="mx-auto w-50">
-    <div class="form-group">
-      <label for="name">Patient Id:</label>
-      <input type="text" class="form-control" formControlName="name" required>
+<div class="container">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/admindash">
+        <img src="assets\images\back.png" alt="" width="30" height="30">
+      </a>
     </div>
-    <div class="form-group">
-        <label for="name">Patient Name:</label>
+  </nav>
+
+
+  <div class="card" >
+    <div class="card-body">
+  <form (ngSubmit)="bookAppointment(bookAppointmentForm.value)" bookAppointmentForm="ngForm" class="mx-auto w-50">
+      <div class="form-group">
+        <label for="name">Patient Id:</label>
         <input type="text" class="form-control" formControlName="name" required>
       </div>
-    <div class="form-group">
-      <label for="age">Doctor Id:</label>
-      <input type="text" class="form-control" formControlName="age" required>
-    </div>
-    <div class="form-group">
-        <label for="age">Patient Adhaar:</label>
+      <div class="form-group">
+          <label for="name">Patient Name:</label>
+          <input type="text" class="form-control" formControlName="name" required>
+        </div>
+      <div class="form-group">
+        <label for="age">Doctor Id:</label>
         <input type="text" class="form-control" formControlName="age" required>
       </div>
       <div class="form-group">
-        <label for="age">Patient Age:</label>
-        <input type="text" class="form-control" formControlName="age" required>
-      </div>
-      <div class="form-group">
-        <label for="age">Patient Disease:</label>
-        <input type="text" class="form-control" formControlName="age" required>
-      </div>
-      <div class="form-group">
-        <label for="age">Patient MobileNo.:</label>
-        <input type="text" class="form-control" formControlName="age" required>
-      </div>
-    <div class="form-group">
-      <label for="gender">Gender:</label>
-      <select class="form-control" formControlName="gender" required>
-        <option value="">Select a gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-        <label for="dateOfVisit">Date of Appointment</label>
-        <input type="date" class="form-control" id="dateOfVisit" formControlName="dateOfVisit">
-       <!--- <div *ngIf="bookAppointmentForm.controls['dateOfVisit'].errors && 
-        bookAppointmentForm.controls['dateOfVisit'].errors['required']&&
-        bookAppointmentForm.controls['dateOfVisit'].errors['dirty'] &&
-        bookAppointmentForm.controls['dateOfVisit'].errors['touched'] " 
-        class="invalid-feedback">
-          Date of Appointment is required.-->
+          <label for="age">Patient Adhaar:</label>
+          <input type="text" class="form-control" formControlName="age" required>
         </div>
         <div class="form-group">
-          <label for="timeOfVisit">Time of Visit:</label>
-          <input type="time" class="form-control" id="timeOfVisit" formControlName="timeOfVisit">
-         <!-- <div *ngIf="form.controls['timeOfVisit'].errors && 
-            form.controls['timeOfVisit'].errors['required']&&
-            form.controls['timeOfVisit'].errors['dirty'] &&
-            form.controls['timeOfVisit'].errors['touched'] " 
-            class="invalid-feedback">
-            Time of Visit is required.-->
-         
+          <label for="age">Patient Age:</label>
+          <input type="text" class="form-control" formControlName="age" required>
         </div>
-     
-    <button type="submit" class="btn btn-primary" (click)="bookAppointment">Book Appointment</button>
-  </form>
+        <div class="form-group">
+          <label for="age">Patient Disease:</label>
+          <input type="text" class="form-control" formControlName="age" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Patient MobileNo.:</label>
+          <input type="text" class="form-control" formControlName="age" required>
+        </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select class="form-control" formControlName="gender" required>
+          <option value="">Select a gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="dateOfVisit">Date of Appointment</label>
+          <input type="date" class="form-control" id="dateOfVisit" formControlName="dateOfVisit">
+          </div>
+          <div class="form-group">
+            <label for="timeOfVisit">Time of Visit:</label>
+            <input type="time" class="form-control" id="timeOfVisit" formControlName="timeOfVisit">
+          </div>
+       
+      <button type="submit" class="btn btn-primary" (click)="bookAppointment">Book Appointment</button>
+    </form>
+  </div>
+  </div>
+
 </div>
-</div>
+
