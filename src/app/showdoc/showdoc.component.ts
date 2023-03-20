@@ -9,16 +9,27 @@ import { AdminserviceService } from '../adminservice.service';
 })
 export class ShowdocComponent implements OnInit{
   doctor:any;
+  doctorToUpdate = {
+    did:"",
+    dname:"",
+    dfield:"",
+    dage:"",
+    dgender:"",
+    dpatientcount:"",
+    dfees:"",
+    dlistoftreatments:""
+  }
   showAdd: boolean=false;
+  showUpdate: boolean=false;
   ngOnInit(): void {
     this.getAllDoctors();
   }
-  constructor(private proser:AdminserviceService,private router:Router){
+  constructor(private adser:AdminserviceService,private router:Router){
 
   }
   getAllDoctors()
   {
-  return this.proser.getAllDoctors().subscribe((d:any)=>
+  return this.adser.getAllDoctors().subscribe((d:any)=>
   {
     console.log(d);
     this.doctor=d;
@@ -28,7 +39,7 @@ export class ShowdocComponent implements OnInit{
  onAdd(doctorForm: any) {
   console.log(doctorForm);
 
-  this.proser.addDoctor(doctorForm).subscribe((data: any) => {
+  this.adser.addDoctor(doctorForm).subscribe((data: any) => {
     console.log(data);
     this.ngOnInit();
   });
@@ -36,15 +47,23 @@ export class ShowdocComponent implements OnInit{
 }
 
 deleteDoc(id:any){
-  return  this.proser.deleteDoctor(id).subscribe((data:any) => {
+  return  this.adser.deleteDoctor(id).subscribe((data:any) => {
     this.ngOnInit();
     console.log(data);
    });
 
 }
-updateDoc(id:number,pro:any)
-{
-  localStorage.setItem("id",id.toString());
-  this.router.navigateByUrl("updatedoc");
+
+edit(doctor: any){
+  this.doctorToUpdate = doctor;
 }
+
+update()
+ {
+  this.adser.updateDoctor(this.doctorToUpdate).subscribe((resp) => {
+      console.log(resp);
+      this.ngOnInit();
+    });
+    this.showUpdate =false;
+    }    
 }

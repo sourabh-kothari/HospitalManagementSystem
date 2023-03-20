@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
@@ -11,6 +12,7 @@ export class PatientloginComponent implements OnInit{
   user:any;
   uemail:any;
   upassword:any;
+  uname:any
   constructor(private route:Router, private userservice:UserService){}
   ngOnInit(): void {
   }
@@ -25,7 +27,8 @@ export class PatientloginComponent implements OnInit{
   )};
 
   userLogin(loginform: any) {
-    if (loginform.uemail === 'abc@123' && loginform.upassword === 'abc123') {
+    
+    if (loginform.uemail === 'abc123' && loginform.upassword === 'abc123') {
       this.route.navigateByUrl("patientdash")
     }
     else{

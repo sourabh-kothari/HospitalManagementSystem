@@ -26,6 +26,11 @@ export class PatientserviceService {
     return this.httpclient.get("/hospital/patient");
    }
 
+   addPatient(patient:any)
+  {
+   return  this.httpclient.post("/hospital/patient",patient);
+  }
+
 
    getPatientByDid(id:any){
     return this.httpclient.get("/hospital/patient/"+id)

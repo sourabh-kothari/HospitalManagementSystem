@@ -1,15 +1,14 @@
+<div class="container">
 <nav class="navbar navbar-light bg-light">
-  <div id="search">
-    <input
-      type="text"
-      placeholder="Enter Doctor Id"
-      [(ngModel)]="searchedKeyword"
-      class="form-control"
-      id="input"
-    />
+  <div class="container-fluid">
+    <form class="d-flex" (ngSubmit)="onSearch(searchForm.value)" #searchForm="ngForm">
+    <input type="text" placeholder="Enter Doctor Id" name="did" id="did" #did="ngModel" ngModel
+    class="form-control"/>
+    <button class="btn btn-outline-success" type="submit" (click)="showTable = !showTable" style="margin-left: 10px;">Search</button>
+  </form>
   </div>
   </nav>
-<!--
+
   <div *ngIf="showTable">
     <table class="table table-bordered border-dark table-hover">
         <thead>
@@ -25,21 +24,21 @@
             <th> Doctor Id</th>
         </thead>
         <tbody>
-          <tr *ngFor="let p of patient">
-            <td >{{ p.pid }}</td>
-            <td>{{ p.pname}}</td>
-            <td>{{ p.pgender }}</td>
-            <td>{{ p.page }}</td>
-            <td>{{ p.padhaar }}</td>
-            <td>{{ p.pdisease }}</td>
-            <td>{{ p.pdate }}</td>
-            <td >{{ p.ptimeslot }}</td>
-            <td >{{ p.did }}</td>
+          <tr *ngFor="let data of patient">
+            <td >{{ data.pid }}</td>
+            <td>{{ data.pname}}</td>
+            <td>{{ data.pgender }}</td>
+            <td>{{ data.page }}</td>
+            <td>{{ data.padhaar }}</td>
+            <td>{{ data.pdisease }}</td>
+            <td>{{ data.pdate }}</td>
+            <td >{{ data.ptimeslot }}</td>
+            <td >{{ data.did }}</td>
           </tr>
         </tbody>
       </table>
   </div>
--->
+
 
   <table class="table table-bordered border-dark table-hover">
     <thead>
@@ -68,3 +67,4 @@
       </tr>
     </tbody>
   </table>
+</div>

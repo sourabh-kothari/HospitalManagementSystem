@@ -23,10 +23,12 @@
         <td>{{ d.dfees }}</td>
         <td >{{ d.dlistoftreatments }}</td>
         <td ><button class="btn btn-danger btn-sm" style="margin-right: 10px;" (click)="deleteDoc(d.did)">Delete</button>
-          <button class="btn btn-success btn-sm" (click)="updateDoc(d.did,d)">Update</button>
+          <button class="btn btn-success btn-sm" (click)="edit(d)" (click)="showUpdate=!showUpdate">Update</button>
         </td>
       </tr>
     </tbody>
+
+
   </table>  
     <button type="button" class="btn btn-primary" (click)="showAdd = !showAdd"> Add Doctor </button>  
     <div *ngIf="showAdd" class="row">
@@ -80,5 +82,45 @@
           </form>
         </div>
     </div>
+</div>
+
+<!--This is update Doc Form-->
+<div *ngIf="showUpdate" class="row">
+<div class="col-lg-8">
+  <div class="card">
+      <h3>Update Doctor Details</h3>
+      <form (ngSubmit)="update()" #updateForm="ngForm" novalidate>
+          <div class="form-group">
+             <!--<div *ngIf="did.errors?.['required'] && did.touched" class="text-danger" style="color: red;">Please enter Doctor Id</div>--> 
+              Doctor Id:<input class="form-control" type="text" #did [(ngModel)]="doctorToUpdate.did" name="did" id="did">
+          </div>
+          <br>
+          Doctor name:<input class="form-control" type="text" #dname [(ngModel)]="doctorToUpdate.dname" name="dname" id="dname">
+          <br>
+          Enter field:<input class="form-control" type="text" #dfield [(ngModel)]="doctorToUpdate.dfield" name="dfield" id="dfield">
+          <br>
+          Enter age:<input class="form-control" type="text" #dage [(ngModel)]="doctorToUpdate.dage" name="dage" id="dage">
+          <br>
+          <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select class="form-select" #dgender [(ngModel)]="doctorToUpdate.dgender" name="dgender" id="dgender">
+                <option value="">Select a gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          <br>
+          Enter patientcount:<input class="form-control" type="number" #dpatientcount [(ngModel)]="doctorToUpdate.dpatientcount" name="dpatientcount" id="dpatientcount">
+          <br>
+          Enter fees:<input class="form-control" type="text" #dfees [(ngModel)]="doctorToUpdate.dfees" name="dfees" id="dfees">
+          <br>
+          Enter List of Treatments:
+          <textarea class="form-control" type="text" #dlistoftreatments [(ngModel)]="doctorToUpdate.dlistoftreatments" name="dlistoftreatments" id="dlistoftreatments"></textarea>
+          <br>
+          <button class="btn btn-success btn-md" >Update</button>
+      </form>
+  </div>
+  </div>
 </div>
 </div>

@@ -10,6 +10,16 @@ import { AdminserviceService } from '../adminservice.service';
 export class UpdatedocComponent implements OnInit{
 
   doctor:any;
+  doctorToUpdate = {
+    did:"",
+    dname:"",
+    dfield:"",
+    dage:"",
+    dgender:"",
+    dpatientcount:"",
+    dfees:"",
+    dlistoftreatments:""
+  }
 
   constructor(private router:Router,private adser:AdminserviceService)
  {
@@ -29,7 +39,7 @@ export class UpdatedocComponent implements OnInit{
   }
   )};
 
- update(data:any)
+ /*update(data:any)
  {
   data.id=localStorage.getItem("id");
   return this.adser.updateDoctor(data.id,data).subscribe((c:any)=>
@@ -40,5 +50,10 @@ export class UpdatedocComponent implements OnInit{
   gotolist() {
     this.router.navigateByUrl("showdoc");
   }
+
+  edit(doctor: any){
+    this.doctorToUpdate = doctor;
+  }*/
+
 
 }

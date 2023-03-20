@@ -9,6 +9,7 @@ import { PatientserviceService } from '../patientservice.service';
 })
 export class ViewappoinmentsComponent implements OnInit{
   patient:any;
+  patientByDid:any;
   showTable:boolean=false;
   public searchedKeyword: string = '';
 
@@ -24,7 +25,9 @@ export class ViewappoinmentsComponent implements OnInit{
   this.pser.getPatientByDid(searchForm).subscribe((data: any) => {
     console.log(data);
     this.ngOnInit();
+    this.patient=data;
   });
+  this.showTable =false;
   }
 
   getAllPatient()

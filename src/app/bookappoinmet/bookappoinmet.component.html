@@ -2,44 +2,49 @@
     <h3>Book Appoinment Form</h3>
     <div class="card">
         <div class="card-body">
-            <form >
-                <div class="form-group">
-                    <label for="name">Patient Id:</label>
-                    <input type="text" class="form-control" formControlName="name" required>
-                  </div>
+            <form (ngSubmit)="onSubmit(appoinmentForm.value)" #appoinmentForm="ngForm" class="mx-auto w-50">
                   <div class="form-group">
                       <label for="name">Patient Name:</label>
-                      <input type="text" class="form-control" formControlName="name" required>
+                      <input type="text" class="form-control" name="pname" id="pname" #pname="ngModel" ngModel required>
                     </div>
                   <div class="form-group">
                     <label for="age">Doctor Id:</label>
-                    <input type="text" class="form-control" formControlName="age" required>
+                    <input type="text" class="form-control" name="did" id="did" #did="ngModel" ngModel  required>
                   </div>
                   <div class="form-group">
                       <label for="age">Patient Adhaar:</label>
-                      <input type="text" class="form-control" formControlName="age" required>
+                      <input type="text" class="form-control" name="padhaar" id="padhaar" #padhaar="ngModel" ngModel required>
                     </div>
                     <div class="form-group">
                       <label for="age">Patient Age:</label>
-                      <input type="text" class="form-control" formControlName="age" required>
+                      <input type="text" class="form-control" name="page" id="page" #page="ngModel" ngModel required>
                     </div>
                     <div class="form-group">
                       <label for="age">Patient Disease:</label>
-                      <input type="text" class="form-control" formControlName="age" required>
+                      <input type="text" class="form-control" name="pdisease" id="pdisease" #pdisease="ngModel" ngModel required>
                     </div>
                     <div class="form-group">
                       <label for="age">Patient MobileNo.:</label>
-                      <input type="text" class="form-control" formControlName="age" required>
+                      <input type="text" class="form-control" name="pmobile" id="pmobile" #pmobile="ngModel" ngModel required>
                     </div>
                   <div class="form-group">
                     <label for="gender">Gender:</label>
-                    <select class="form-control" formControlName="gender" required>
+                    <select class="form-control" name="pgender" id="pgender" #pgender="ngModel" ngModel required>
                       <option value="">Select a gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label for="dateOfVisit">Date of Appointment</label>
+                    <input type="date" class="form-control" id="pdate" name="pdate" #pdate="ngModel" ngModel required>
+                  </div>
+                  <div class="form-group">
+                    <label for="timeOfVisit">Time of Visit:</label>
+                    <input type="time" class="form-control" id="ptimeslot" name="ptimeslot" #ptimeslot="ngModel" ngModel required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Book Appointment</button>
             </form>
         </div>
     </div>
