@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { UserService } from '../user.service';
 
 @Component({
@@ -20,8 +21,11 @@ export class RegisterComponent implements OnInit{
       console.log(data);
       this.ngOnInit();
       this.router.navigateByUrl("patientlogin");
-      alert("Registration Successfull..!!");
     });
+  }
+
+  registerSuccess() {
+    Swal.fire('Registered', 'Registration Done Successfully!', 'success');
   }
 
 }
