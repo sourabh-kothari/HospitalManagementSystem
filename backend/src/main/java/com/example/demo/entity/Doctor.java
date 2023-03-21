@@ -34,14 +34,14 @@ public class Doctor {
 	
 	
 	@OneToMany
-    private List<User> users;
+    private List<Patient> patients;
 
-    public List<User> getUsers() {
-        return users;
+    public List<Patient> getPatient() {
+        return patients;
     }
 
-    public void addUsers(User user) {
-        users.add(user);
+    public void addPatient(Patient patient) {
+        patients.add(patient);
     }
 	
 	

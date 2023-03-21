@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" routerLink="/admindash">
+      <a class="navbar-brand" routerLink="/patientdash">
         <img src="assets\images\back.png" alt="" width="30" height="30">
       </a>
     </div>
@@ -10,34 +10,34 @@
 
   <div class="card" >
     <div class="card-body">
-  <form (ngSubmit)="bookAppointment(bookAppointmentForm.value)" bookAppointmentForm="ngForm" class="mx-auto w-50">
+  <form (ngSubmit)="onSubmit(patientForm.value)" #patientForm="ngForm" class="mx-auto w-50">
       <div class="form-group">
           <label for="name">Patient Name:</label>
-          <input type="text" class="form-control" formControlName="name" required>
+          <input type="text" class="form-control" name="pname" id="pname" #pname="ngModel" required ngModel>
         </div>
       <div class="form-group">
         <label for="age">Doctor Id:</label>
-        <input type="text" class="form-control" formControlName="age" required>
+        <input type="text" class="form-control" name="did" id="did" #did="ngModel" required ngModel>
       </div>
       <div class="form-group">
-          <label for="age">Patient Adhaar:</label>
-          <input type="text" class="form-control" formControlName="age" required>
+          <label for="padhaar">Patient Adhaar:</label>
+          <input type="text" class="form-control" name="padhaar" id="padhaar" #padhaar="ngModel" required ngModel>
         </div>
         <div class="form-group">
-          <label for="age">Patient Age:</label>
-          <input type="text" class="form-control" formControlName="age" required>
+          <label for="page">Patient Age:</label>
+          <input type="text" class="form-control" name="page" id="page" #page="ngModel" required ngModel>
         </div>
         <div class="form-group">
-          <label for="age">Patient Disease:</label>
-          <input type="text" class="form-control" formControlName="age" required>
+          <label for="pdisease">Patient Disease:</label>
+          <input type="text" class="form-control" name="pdisease" id="pdisease" #pdisease="ngModel" required ngModel>
         </div>
         <div class="form-group">
-          <label for="age">Patient MobileNo.:</label>
-          <input type="text" class="form-control" formControlName="age" required>
+          <label for="pmobile">Patient MobileNo.:</label>
+          <input type="text" class="form-control" name="pmobile" id="pmobile" #pmobile="ngModel" required ngModel>
         </div>
       <div class="form-group">
-        <label for="gender">Gender:</label>
-        <select class="form-control" formControlName="gender" required>
+        <label for="pgender">Gender:</label>
+        <select class="form-control" name="pgender" id="pgender" #pgender="ngModel" required ngModel>
           <option value="">Select a gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
@@ -45,15 +45,15 @@
         </select>
       </div>
       <div class="form-group">
-          <label for="dateOfVisit">Date of Appointment</label>
-          <input type="date" class="form-control" id="dateOfVisit" formControlName="dateOfVisit">
+          <label for="pdate">Date of Appointment</label>
+          <input type="date" class="form-control" name="pdate" id="pdate" #pdate="ngModel" required ngModel>
           </div>
           <div class="form-group">
-            <label for="timeOfVisit">Time of Visit:</label>
-            <input type="time" class="form-control" id="timeOfVisit" formControlName="timeOfVisit">
+            <label for="ptimeslot">Time of Visit:</label>
+            <input type="time" class="form-control" name="ptimeslot" id="ptimeslot" #ptimeslot="ngModel" required ngModel>
           </div>
        
-      <button type="submit" class="btn btn-primary" (click)="bookAppointment">Book Appointment</button>
+      <button type="submit" class="btn btn-primary" (click)="bookingSuccess()">Book Appointment</button>
     </form>
   </div>
   </div>

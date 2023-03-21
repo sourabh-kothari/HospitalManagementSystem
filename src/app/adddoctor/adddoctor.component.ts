@@ -20,6 +20,7 @@ export class AdddoctorComponent implements OnInit{
     this.adser.addDoctor(doctorForm).subscribe((data: any) => {
       console.log(data);
       this.ngOnInit();
+      alert("New Doctor Added");
     });
   }
 }

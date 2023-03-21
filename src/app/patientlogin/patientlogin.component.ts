@@ -50,14 +50,11 @@ export class PatientloginComponent implements OnInit{
         this.loggedIn=true;
         localStorage.setItem("loggedIn",JSON.stringify(this.loggedIn));
         localStorage.setItem("userdetails",JSON.stringify(this.userDetails));
+        alert("Logged in Successfully..!!");
         this.route.navigateByUrl("patientdash");
       }
       console.log(this.loggedIn);
       })
     }
-
-    registerSuccess() {
-      Swal.fire('Welcome', 'Logged In Successfully!', 'success');
-    }
-
+    
 }

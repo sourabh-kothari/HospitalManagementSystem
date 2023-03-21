@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Doctor;
+import com.example.demo.entity.Patient;
 import com.example.demo.entity.User;
 import com.example.demo.service.ServiceImplementations;
 
@@ -21,6 +22,8 @@ import com.example.demo.service.ServiceImplementations;
 @RequestMapping("/hospital")
 public class Controller {
 	private ServiceImplementations serimp;
+	static User user=null;
+	boolean loggedIn=false;
 
 	public Controller(ServiceImplementations serimp) {
 		this.serimp = serimp;
@@ -50,8 +53,35 @@ public class Controller {
 	public void insertUser(@RequestBody User user) {
 		serimp.InsertUser(user);
 	}
-	@GetMapping("/doctor/search/{dfield}")
-	public List<Doctor> getDoctorByField(@PathVariable String dfield) {
-		return serimp.searchDoctorByField(dfield);
+	
+	@GetMapping("/patient")
+	public List<Patient> displayPatient(){
+		return serimp.displayPatient();
 	}
+	
+	@PostMapping("/patient")
+	public void insertPatient(@RequestBody Patient patient) {
+		serimp.InsertPatient(patient);
+	}
+	@GetMapping("/patient/{id}")
+	public List<Patient> getPatientByDid(@PathVariable(value = "id") int id){
+		return serimp.getPatientListByDid(id);
+		
+	}
+	
+	@GetMapping("/user/login/{email}/{password}")
+	public User login(@PathVariable String email, @PathVariable String password)
+	{
+		user=serimp.login(email, password);
+		if(user==null)
+		{
+			return null;
+		}
+		else
+		{
+			 loggedIn = true;
+			return user;
+		}
+	}
+	
 }

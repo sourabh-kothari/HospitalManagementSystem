@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { PatientserviceService } from '../patientservice.service';
 
 @Component({
   selector: 'app-bookappointment',
@@ -7,21 +9,23 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./bookappointment.component.css']
 })
 export class BookappointmentComponent implements OnInit {
-  bookAppointmentForm: any;
+patient:any;
 
- 
-
-  constructor(private formBuilder: FormBuilder) { }
+constructor(private pser:PatientserviceService,private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  bookAppointment( bookAppointmentForm:any) {
-   
-    if (this.bookAppointmentForm.valid) {
-      // perform action to book appointment
-      console.log(this.bookAppointmentForm.value);
-    }
+  onSubmit(patientForm: any) {
+    console.log(patientForm);
+  
+    this.pser.addPatient(patientForm).subscribe((data: any) => {
+      console.log(data);
+      this.ngOnInit();
+    });
   }
+    bookingSuccess() {
+      Swal.fire('Appoinment Booked','', 'success');
+    }
   }
 
